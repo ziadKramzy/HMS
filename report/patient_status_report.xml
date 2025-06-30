@@ -1,0 +1,141 @@
+<!-- <odoo>
+    <template id="patient_status_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="patient">
+                <div class="page">
+                    <h2 style="text-align: center;">Patient Status Report</h2>
+                    <p><strong>Name:</strong> <t t-esc="patient.first_name"/> <t t-esc="patient.last_name"/></p>
+                    <p><strong>Birth Date:</strong> <t t-esc="patient.birth_date"/></p>
+                    <p><strong>PCR:</strong> <t t-esc="patient.cr_ratio"/></p>
+                    <p><strong>Blood Type:</strong> <t t-esc="patient.blood_type"/></p>
+                    <p><strong>Email:</strong> <t t-esc="patient.email"/></p>
+                    <p><strong>Age:</strong> <t t-esc="patient.age"/></p>
+                    <p><strong>Department:</strong> <t t-esc="patient.department_id.name"/></p>
+                    
+                    <p><strong>Doctors:</strong> 
+                        <t t-set="total" t-value="len(patient.doctor_ids)"/>
+                        <t t-set="count" t-value="0"/>
+                        <t t-foreach="patient.doctor_ids" t-as="doc">
+                            <t t-set="count" t-value="count + 1"/>
+                            <t t-esc="doc.first_name"/> <t t-esc="doc.last_name"/><t t-if="count != total">, </t>
+                        </t>
+                    </p>
+
+                    <h3>Log History</h3>
+                    <table class="table table-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Date</th>
+                                <th>Info</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="patient.log_ids" t-as="log">
+                                <tr>
+                                    <td><t t-esc="log.created_by.name"/></td>
+                                    <td><t t-esc="log.date"/></td>
+                                    <td><t t-esc="log.description"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo> -->
+
+<odoo>
+    <template id="patient_status_report">
+        <t t-call="web.html_container">
+        
+            <style>
+                .page {
+                    padding: 30px;
+                    font-family: Arial, sans-serif;
+                    color: #333;
+                }
+                h2 {
+                    text-align: center;
+                    color: #2E86C1;
+                    border-bottom: 2px solid #2E86C1;
+                    padding-bottom: 10px;
+                    margin-bottom: 20px;
+                }
+                h3 {
+                    color: #117A65;
+                    margin-top: 30px;
+                    border-bottom: 1px solid #117A65;
+                    padding-bottom: 5px;
+                }
+                p {
+                    font-size: 14px;
+                    margin: 5px 0;
+                }
+                .table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 15px;
+                    font-size: 13px;
+                }
+                .table th {
+                    background-color: #2E86C1;
+                    color: white;
+                    padding: 8px;
+                    text-align: left;
+                }
+                .table td {
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                }
+                .table tr:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+            </style>
+
+            <t t-foreach="docs" t-as="patient">
+                <div class="page">
+                    <h2>Patient Status Report</h2>
+                    <p><strong>Name:</strong> <t t-esc="patient.first_name"/> <t t-esc="patient.last_name"/></p>
+                    <p><strong>Birth Date:</strong> <t t-esc="patient.birth_date"/></p>
+                    <p><strong>PCR:</strong> <t t-esc="patient.cr_ratio"/></p>
+                    <p><strong>Blood Type:</strong> <t t-esc="patient.blood_type"/></p>
+                    <p><strong>Email:</strong> <t t-esc="patient.email"/></p>
+                    <p><strong>Age:</strong> <t t-esc="patient.age"/></p>
+                    <p><strong>Department:</strong> <t t-esc="patient.department_id.name"/></p>
+                    
+                    <p><strong>Doctors:</strong> 
+                        <t t-set="total" t-value="len(patient.doctor_ids)"/>
+                        <t t-set="count" t-value="0"/>
+                        <t t-foreach="patient.doctor_ids" t-as="doc">
+                            <t t-set="count" t-value="count + 1"/>
+                            <t t-esc="doc.first_name"/> <t t-esc="doc.last_name"/><t t-if="count != total">, </t>
+                        </t>
+                    </p>
+
+                    <h3>Log History</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Date</th>
+                                <th>Info</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="patient.log_ids" t-as="log">
+                                <tr>
+                                    <td><t t-esc="log.created_by.name"/></td>
+                                    <td><t t-esc="log.date"/></td>
+                                    <td><t t-esc="log.description"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
+

@@ -1,7 +1,7 @@
 {
     "name" : "HMS",
     "summary": "hostpitals management system",
-    "author" : "Galal",
+    "author" : "Ziad",
     'depends': ['base', 'contacts', 'crm'],
     "data" : [
         'security/hms_groups.xml',
